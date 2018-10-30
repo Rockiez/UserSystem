@@ -9,17 +9,24 @@ import { User } from '../user';
 })
 export class UserListComponent implements OnInit {
 
-  users: User[];
-
-  constructor(private heroService: UserService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
     this.getHeroes();
   }
 
   getHeroes(): void {
-    this.heroService.getUsers()
-    .subscribe(users => this.users = users);
+    this.userService.getUsers()
+    .subscribe(users => this.userService.userList = users);
+  }
+
+  clickevent(): void {
+    console.log(this.userService.userList);
+  }
+
+  delete(user: User): void {
+    this.userService.userList = this.userService.userList.filter(h => h !== user);
+    this.userService.deleteUser(user).subscribe();
   }
 
   // add(name: string): void {
@@ -30,10 +37,4 @@ export class UserListComponent implements OnInit {
   //       this.heroes.push(hero);
   //     });
   // }
-
-  delete(user: User): void {
-    this.users = this.users.filter(h => h !== user);
-    this.heroService.deleteUser(user).subscribe();
-  }
-
 }

@@ -15,7 +15,6 @@ export class UserDetailComponent implements OnInit {
 
   user$: Observable<User>;
   user: User;
-   editName: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,9 +22,9 @@ export class UserDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log('work');
     this.getUser();
     this.user$.subscribe((ob) => {this.user = ob; });
+    console.log(this.user);
   }
 
   getUser(): void {
@@ -35,11 +34,18 @@ export class UserDetailComponent implements OnInit {
     );
   }
 
- save(): void {
-
-      this.userService.updateUser(this.user)
-      .subscribe();
-
-  }
+  save(): void {
+    if (typeof this.user.age === 'string') {
+      this.user.age = +this.user.age;
+    }
+    if (typeof this.user.weight === 'string') {
+      this.user.weight = +this.user.weight;
+    }
+    if (typeof this.user.height === 'string') {
+      this.user.height = +this.user.height;
+    }
+    console.log(this.user);
+    this.userService.refreshUser(this.user);
+ }
 
 }

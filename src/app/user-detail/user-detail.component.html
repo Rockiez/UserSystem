@@ -2,9 +2,24 @@
   <h2>{{user.name | uppercase}} Details</h2>
   <div><span>id: </span>{{user.id}}</div>
   <div>
-    <label>name:
-      <input [(ngModel)]="user.first_name" placeholder="name"/>
-    </label>
+    <div>First Name:
+      <input [(ngModel)]="user.first_name" placeholder="First Name"/>
+    </div>
+    <div>Last Name:
+      <input [(ngModel)]="user.last_name" placeholder="Last Name"/>
+    </div>
+    <div>Email:
+      <input [(ngModel)]="user.email" placeholder="Email"/>
+    </div>
+    <div>Age:
+      <input [(ngModel)]="user.age" placeholder="Age"/>
+    </div>
+    <div>Weight:
+      <input [(ngModel)]="user.weight" placeholder="Weight"/>
+    </div>
+    <div>Height:
+      <input [(ngModel)]="user.height" placeholder="Height"/>
+    </div>
   </div>
   <button (click)="save()">save</button>
 </div>

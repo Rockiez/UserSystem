@@ -1,6 +1,6 @@
 import { MessageService } from './message.service';
 
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
@@ -15,6 +15,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UserService {
+
+   public userList: User[];
 
   private usersUrl = 'api/users';  // URL to web api
 
@@ -93,6 +95,12 @@ export class UserService {
     );
   }
 
+  refreshUser (user: User): void {
+    this.updateUser(user).subscribe();
+    if ( this.userList != null) {
+      this.getUsers().subscribe(users => this.userList = users);
+    }
+  }
   /**
    * Handle Http operation that failed.
    * Let the app continue.

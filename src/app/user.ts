@@ -7,6 +7,5 @@ export class User {
     age: number;
     weight: number;
     height: number;
-    drink: boolean;
-    smoke: boolean;
+
 }
