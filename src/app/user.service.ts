@@ -86,7 +86,7 @@ export class UserService {
   }
 
   /** PUT: update the user on the server */
-  updateUser (user: Observable<User>): Observable<any> {
+  updateUser (user: User): Observable<any> {
     return this.http.put(this.usersUrl, user, httpOptions).pipe(
       tap(),
       catchError(this.handleError<any>('updateUser'))

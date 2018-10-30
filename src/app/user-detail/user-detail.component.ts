@@ -13,8 +13,9 @@ import { switchMap } from 'rxjs/operators';
 })
 export class UserDetailComponent implements OnInit {
 
-  // @Input() user$: User;
   user$: Observable<User>;
+  user: User;
+   editName: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,23 +25,21 @@ export class UserDetailComponent implements OnInit {
   ngOnInit(): void {
     console.log('work');
     this.getUser();
-
+    this.user$.subscribe((ob) => {this.user = ob; });
   }
 
   getUser(): void {
-    // const id = +this.route.paramMap.get('id');
-    // this.userService.getUser(id)
-    //   .subscribe(user => this.user = user);
     this.user$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
         this.userService.getUser(params.get('id')))
     );
-
   }
 
  save(): void {
-    this.userService.updateUser(this.user$)
+
+      this.userService.updateUser(this.user)
       .subscribe();
+
   }
 
 }

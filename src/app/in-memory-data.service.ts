@@ -5,16 +5,16 @@ import { User } from './user';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const users = [
-      { id: 11, name: 'Mr. Nice' },
-      { id: 12, name: 'Narco' },
-      { id: 13, name: 'Bombasto' },
-      { id: 14, name: 'Celeritas' },
-      { id: 15, name: 'Magneta' },
-      { id: 16, name: 'RubberMan' },
-      { id: 17, name: 'Dynama' },
-      { id: 18, name: 'Dr IQ' },
-      { id: 19, name: 'Magma' },
-      { id: 20, name: 'Tornado' }
+      { id: 11, first_name: 'Mr. Nice' },
+      { id: 12, first_name: 'Narco' },
+      { id: 13, first_name: 'Bombasto' },
+      { id: 14, first_name: 'Celeritas' },
+      { id: 15, first_name: 'Magneta' },
+      { id: 16, first_name: 'RubberMan' },
+      { id: 17, first_name: 'Dynama' },
+      { id: 18, first_name: 'Dr IQ' },
+      { id: 19, first_name: 'Magma' },
+      { id: 20, first_name: 'Tornado' }
     ];
     return {users};
   }
