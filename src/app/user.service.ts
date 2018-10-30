@@ -19,14 +19,13 @@ export class UserService {
   private usersUrl = 'api/users';  // URL to web api
 
   constructor(
-    private http: HttpClient,
-    private messageService: MessageService) { }
+    private http: HttpClient) { }
 
   /** GET users from the server */
   getUsers (): Observable<User[]> {
     return this.http.get<User[]>(this.usersUrl)
       .pipe(
-        tap(users => this.log('fetched users')),
+        tap(),
         catchError(this.handleError('getUsers', []))
       );
   }
@@ -39,17 +38,16 @@ export class UserService {
         map(users => users[0]), // returns a {0|1} element array
         tap(h => {
           const outcome = h ? `fetched` : `did not find`;
-          this.log(`${outcome} user id=${id}`);
         }),
         catchError(this.handleError<User>(`getUser id=${id}`))
       );
   }
 
   /** GET user by id. Will 404 if id not found */
-  getUser(id: number): Observable<User> {
+  getUser(id: number | string): Observable<User> {
     const url = `${this.usersUrl}/${id}`;
     return this.http.get<User>(url).pipe(
-      tap(_ => this.log(`fetched user id=${id}`)),
+      tap(),
       catchError(this.handleError<User>(`getUser id=${id}`))
     );
   }
@@ -61,7 +59,7 @@ export class UserService {
       return of([]);
     }
     return this.http.get<User[]>(`${this.usersUrl}/?name=${term}`).pipe(
-      tap(_ => this.log(`found users matching "${term}"`)),
+      tap(),
       catchError(this.handleError<User[]>('searchUsers', []))
     );
   }
@@ -71,7 +69,7 @@ export class UserService {
   /** POST: add a new user to the server */
   addUser (user: User): Observable<User> {
     return this.http.post<User>(this.usersUrl, user, httpOptions).pipe(
-      tap(_ => this.log(`added user w/ id=${user.id}`)),
+      tap(),
       catchError(this.handleError<User>('addUser'))
     );
   }
@@ -82,15 +80,15 @@ export class UserService {
     const url = `${this.usersUrl}/${id}`;
 
     return this.http.delete<User>(url, httpOptions).pipe(
-      tap(_ => this.log(`deleted user id=${id}`)),
+      tap(),
       catchError(this.handleError<User>('deleteUser'))
     );
   }
 
   /** PUT: update the user on the server */
-  updateUser (user: User): Observable<any> {
+  updateUser (user: Observable<User>): Observable<any> {
     return this.http.put(this.usersUrl, user, httpOptions).pipe(
-      tap(_ => this.log(`updated user id=${user.id}`)),
+      tap(),
       catchError(this.handleError<any>('updateUser'))
     );
   }
@@ -108,15 +106,10 @@ export class UserService {
       console.error(error); // log to console instead
 
       // TODO: better job of transforming error for user consumption
-      this.log(`${operation} failed: ${error.message}`);
-
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
   }
 
   /** Log a UserService message with the MessageService */
-  private log(message: string) {
-    this.messageService.add(`UserService: ${message}`);
-  }
 }

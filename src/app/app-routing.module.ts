@@ -4,9 +4,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/users', pathMatch: 'full' },
-  { path: 'detail/:id', component: UserDetailComponent },
-  { path: 'users', component: UserListComponent }
+  { path: '', redirectTo: 'detail/11', pathMatch: 'full' },
+  { path: 'detail/:id', component: UserDetailComponent},
+  { path: '**', redirectTo: 'detail/11' }
 ];
 
 @NgModule({
