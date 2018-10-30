@@ -12,6 +12,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     AppComponent,
     UserListComponent,
     UserDetailComponent,
-    UserSearchComponent
+    UserSearchComponent,
+    PageNotFoundComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
