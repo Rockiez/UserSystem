@@ -3,6 +3,7 @@
     <a [routerLink]="['detail/',user.id ]">
       <span class="badge" >{{user.id}}</span> {{user.first_name}}
     </a>
+    <button (click)="delete(user)">Delete</button>
   </li>
 </ul>
 <button (click)="clickevent()">show userlist</button>

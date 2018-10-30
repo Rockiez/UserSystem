@@ -25,7 +25,7 @@ export class UserListComponent implements OnInit {
   }
 
   delete(user: User): void {
-    this.userService.userList = this.userService.userList.filter(h => h !== user);
+    this.userService.userList = this.userService.userList.filter(u => u !== user);
     this.userService.deleteUser(user).subscribe();
   }
 

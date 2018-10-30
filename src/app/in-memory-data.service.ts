@@ -13,7 +13,8 @@ export class InMemoryDataService implements InMemoryDbService {
         age: 22,
         weight: 70,
         height: 182,
-        admin: false},
+        // admin: false
+      },
 
       { id: 12,
         first_name: 'Narco',
@@ -23,7 +24,8 @@ export class InMemoryDataService implements InMemoryDbService {
         age: 24,
         weight: 92,
         height: 185,
-        admin: false},
+        // admin: false
+      },
 
       { id: 13,
         first_name: 'Bombasto',
@@ -33,7 +35,8 @@ export class InMemoryDataService implements InMemoryDbService {
         age: 34,
         weight: 75,
         height: 172,
-        admin: false},
+        // admin: false
+      },
 
       { id: 14,
         first_name: 'Celeritas',
@@ -43,7 +46,8 @@ export class InMemoryDataService implements InMemoryDbService {
         age: 45,
         weight: 66,
         height: 182,
-        admin: false},
+        // admin: false
+      },
 
       { id: 15,
         first_name: 'Magneta',
@@ -53,7 +57,8 @@ export class InMemoryDataService implements InMemoryDbService {
         age: 23,
         weight: 66,
         height: 170,
-        admin: false},
+        // admin: false
+      },
 
       { id: 16,
         first_name: 'RubberMan',
@@ -63,7 +68,8 @@ export class InMemoryDataService implements InMemoryDbService {
         age: 31,
         weight: 50,
         height: 150,
-        admin: false},
+        // admin: false
+      },
 
       { id: 17,
         first_name: 'Dynama',
@@ -73,7 +79,8 @@ export class InMemoryDataService implements InMemoryDbService {
         age: 27,
         weight: 120,
         height: 200,
-        admin: false},
+        // admin: false
+      },
 
       { id: 18,
         first_name: 'IQ',
@@ -83,7 +90,8 @@ export class InMemoryDataService implements InMemoryDbService {
         age: 31,
         weight: 72,
         height: 190,
-        admin: false},
+        // admin: false
+      },
 
       { id: 19,
         first_name: 'Magma',
@@ -93,7 +101,8 @@ export class InMemoryDataService implements InMemoryDbService {
         age: 42,
         weight: 60,
         height: 120,
-        admin: false},
+        // admin: false
+      },
 
       { id: 20,
         first_name: 'Tornado',
@@ -103,7 +112,8 @@ export class InMemoryDataService implements InMemoryDbService {
         age: 28,
         weight: 80,
         height: 162,
-        admin: false},
+        // admin: false
+      },
     ];
     return {users};
   }

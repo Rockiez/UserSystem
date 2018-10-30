@@ -7,5 +7,6 @@ export class User {
     age: number;
     weight: number;
     height: number;
+    // admin: boolean;
 
 }
