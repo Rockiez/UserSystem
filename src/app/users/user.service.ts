@@ -79,6 +79,7 @@ export class UserService {
   deleteUser (user: User | number): Observable<User> {
     const id = typeof user === 'number' ? user : user.id;
     const url = `${this.usersUrl}/${id}`;
+    this.userList = this.userList.filter(u => u.id !== id);
 
     return this.http.delete<User>(url, httpOptions).pipe(
       tap(),
@@ -97,7 +98,21 @@ export class UserService {
   refreshUser (user: User): void {
     this.updateUser(user).subscribe();
     if ( this.userList != null) {
+      // todo: change data in local.
       this.getUsers().subscribe(users => this.userList = users);
+      this.userList = this.userList.map(
+        fu => {if (fu.id === user.id) {
+          fu.age = user.age;
+          fu.email = user.email;
+          fu.first_name = user.first_name;
+          fu.last_name = user.last_name;
+          fu.weight = user.weight;
+          fu.height = user.height;
+          fu.password = user.password;
+          }
+          return fu;
+       }
+      );
     }
   }
   /**

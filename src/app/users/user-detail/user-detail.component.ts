@@ -45,7 +45,9 @@ export class UserDetailComponent implements OnInit {
       this.user.height = +this.user.height;
     }
     console.log(this.user);
-    this.userService.updateUser(this.user);
+    // this.userService.updateUser(this.user).subscribe();
+    this.userService.refreshUser(this.user);
+
  }
 
 }
