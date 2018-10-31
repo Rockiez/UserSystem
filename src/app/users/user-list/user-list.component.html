@@ -1,6 +1,6 @@
 <ul class="users-list">
-  <li *ngFor="let user of userService.userList">
-    <a [routerLink]="['detail/',user.id ]">
+  <li *ngFor="let user of userService.userList" [class.selected]="user.id === selectedId">
+    <a [routerLink]="['/detail',user.id ]">
       <span class="badge" >{{user.id}}</span> {{user.first_name}}
     </a>
     <button (click)="delete(user)">Delete</button>

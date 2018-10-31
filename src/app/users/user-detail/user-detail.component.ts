@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { UserService } from '../user.service';
@@ -45,7 +45,7 @@ export class UserDetailComponent implements OnInit {
       this.user.height = +this.user.height;
     }
     console.log(this.user);
-    this.userService.refreshUser(this.user);
+    this.userService.updateUser(this.user);
  }
 
 }

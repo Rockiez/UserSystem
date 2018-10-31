@@ -1,6 +1,9 @@
 import { UserService } from './../user.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
+import { switchMap } from 'rxjs/operators';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+
 
 @Component({
   selector: 'app-user-list',
@@ -9,10 +12,21 @@ import { User } from '../user';
 })
 export class UserListComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  selectedId: number;
+  constructor(private userService: UserService,
+    private route: ActivatedRoute) { }
 
+  // ngOnInit() {
+  //   this.getHeroes();
+  // }
   ngOnInit() {
-    this.getHeroes();
+    this.route.paramMap.pipe(
+      switchMap((params: ParamMap) => {
+        this.selectedId = +params.get('id');
+        return this.userService.getUsers();
+      })
+    ).subscribe(
+      (ob) => {this.userService.userList = ob; } );
   }
 
   getHeroes(): void {

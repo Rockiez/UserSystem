@@ -5,23 +5,23 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserListComponent } from './user-list/user-list.component';
-import { UserDetailComponent } from './user-detail/user-detail.component';
-import { UserSearchComponent } from './user-search/user-search.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { UsersModule } from './users/users.module';
 
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    UsersModule,
+    AppRoutingModule,
+
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
@@ -29,12 +29,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     )
+
   ],
   declarations: [
     AppComponent,
-    UserListComponent,
-    UserDetailComponent,
-    UserSearchComponent,
     PageNotFoundComponent
   ],
   providers: [],
