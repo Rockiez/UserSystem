@@ -21,7 +21,7 @@ export class UserCreateComponent implements OnInit {
   ngOnInit() {
     console.log('Create work');
     this.user = new User();
-    this.user.id = this.userService.userList.length + 11;
+    // this.user.id = this.userService.userList[this.userService.userList.length-1].id + 1;
     this.user.email = '';
     this.user.password = '';
     this.user.first_name = '';
@@ -39,8 +39,8 @@ export class UserCreateComponent implements OnInit {
       .subscribe(user => {
         this.userService.userList.push(user);
       });
-      
-    this.router.navigate(['/detail'+this.user.id]);
+
+    this.router.navigate(['/detail/'+this.userService.userList[this.userService.userList.length -1].id]);
 
     console.log(this.user);
 

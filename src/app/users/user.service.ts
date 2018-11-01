@@ -15,9 +15,10 @@ const httpOptions = {
 })
 export class UserService {
 
-   public userList: User[];
+  public userList: User[];
 
-  private usersUrl = 'api/users';  // URL to web api
+  public API = 'http://localhost:8080/api';
+  private usersUrl = this.API + '/users';  // URL to web api
 
   constructor(
     private http: HttpClient) { }
@@ -89,14 +90,14 @@ export class UserService {
 
   /** PUT: update the user on the server */
   updateUser (user: User): Observable<any> {
-    return this.http.put(this.usersUrl, user, httpOptions).pipe(
+    return this.http.put(`${this.usersUrl}/${user.id}`, user, httpOptions).pipe(
       tap(),
       catchError(this.handleError<any>('updateUser'))
     );
   }
 
   refreshUser (user: User): void {
-    this.updateUser(user).subscribe();
+    this.updateUser( user).subscribe();
     if ( this.userList != null) {
       // todo: change data in local.
       this.getUsers().subscribe(users => this.userList = users);
