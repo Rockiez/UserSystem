@@ -42,12 +42,10 @@ export class UserListComponent implements OnInit {
     this.userService.deleteUser(user).subscribe();
   }
 
-  // add(name: string): void {
-  //   name = name.trim();
-  //   if (!name) { return; }
-  //   this.heroService.addHero({ name } as Hero)
-  //     .subscribe(hero => {
-  //       this.heroes.push(hero);
-  //     });
-  // }
+  add(): void {
+    this.userService.addUser({ name } as User)
+      .subscribe(hero => {
+        this.users.push(hero);
+      });
+  }
 }

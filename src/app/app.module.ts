@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { UsersModule } from './users/users.module';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { UsersModule } from './users/users.module';
   ],
   declarations: [
     AppComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    LoginComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
