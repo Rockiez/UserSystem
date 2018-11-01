@@ -6,6 +6,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { FormsModule } from '@angular/forms';
 import { UsersPanelComponent } from './users-panel/users-panel.component';
+import { UserCreateComponent } from './user-create/user-create.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,15 @@ import { UsersPanelComponent } from './users-panel/users-panel.component';
   declarations: [
     UserDetailComponent,
     UserListComponent,
-    UsersPanelComponent
+    UsersPanelComponent,
+    UserCreateComponent
+  ],
+  exports: [
+    UserDetailComponent,
+    UserListComponent,
+    UsersPanelComponent,
+    UserCreateComponent
   ]
+
 })
 export class UsersModule { }

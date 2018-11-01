@@ -1,5 +1,5 @@
-<div *ngIf="user">
-  <h2>{{user.first_name}} {{user.last_name}} Detail</h2>
+<div>
+  <h2>Create </h2>
   <div><span>id: </span>{{user.id}}</div>
   <div>
     <div>First Name:
@@ -14,15 +14,7 @@
     <div>Password:
       <input [(ngModel)]="user.password" placeholder="password"/>
     </div>
-    <div>Age:
-      <input [(ngModel)]="user.age" placeholder="Age"/>
-    </div>
-    <div>Weight:
-      <input [(ngModel)]="user.weight" placeholder="Weight"/>
-    </div>
-    <div>Height:
-      <input [(ngModel)]="user.height" placeholder="Height"/>
-    </div>
   </div>
   <button (click)="save()">save</button>
+  <button (click)="cancel()">cancel</button>
 </div>

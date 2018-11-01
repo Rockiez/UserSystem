@@ -1,10 +1,12 @@
 <ul class="users-list"  *ngIf="userService.userList">
   <li *ngFor="let user of userService.userList" [class.selected]="user.id === selectedId">
     <a [routerLink]="['/detail',user.id ]">
-      <span class="badge" >{{user.id}}</span> {{user.first_name}}
+      <span >{{user.id}}</span> {{user.first_name}}
     </a>
     <button (click)="delete(user)">Delete</button>
   </li>
 </ul>
 <button (click)="clickevent()">show userlist</button>
-<button (click)="add()">add user</button>
+<div><a [routerLink]="['/create']">Create User</a>
+
+</div>
