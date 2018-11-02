@@ -7,18 +7,30 @@ import { UserListComponent } from './user-list/user-list.component';
 import { FormsModule } from '@angular/forms';
 import { UsersPanelComponent } from './users-panel/users-panel.component';
 import { UserCreateComponent } from './user-create/user-create.component';
+import {MatButtonModule, MatCheckboxModule, MatInputModule, MatCardModule} from '@angular/material';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatTableModule} from '@angular/material/table';
+
 
 @NgModule({
   imports: [
     CommonModule,
     UsersRoutingModule,
-    FormsModule
+    FormsModule,
+    MatButtonModule, 
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatTableModule,
+    MatCardModule,
+
   ],
   declarations: [
     UserDetailComponent,
     UserListComponent,
     UsersPanelComponent,
-    UserCreateComponent
+    UserCreateComponent,
+
   ],
   exports: [
     UserDetailComponent,

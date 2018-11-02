@@ -2,6 +2,7 @@
   <h2>{{user.first_name}} {{user.last_name}} Detail</h2>
   <div><span>id: </span>{{user.id}}</div>
   <div>
+
     <div>First Name:
       <input [(ngModel)]="user.first_name" placeholder="First Name"/>
     </div>
@@ -9,7 +10,9 @@
       <input [(ngModel)]="user.last_name" placeholder="Last Name"/>
     </div>
     <div>Email:
-      <input [(ngModel)]="user.email" placeholder="Email"/>
+        <mat-form-field class="example-full-width">
+            <input matInput [(ngModel)]="user.email" placeholder="Email"/>
+        </mat-form-field>
     </div>
     <div>Password:
       <input [(ngModel)]="user.password" placeholder="password"/>

@@ -19,6 +19,9 @@ export class UserListComponent implements OnInit {
   // ngOnInit() {
   //   this.getHeroes();
   // }
+  
+  columnsToDisplay = ['id','name','detail','delete'];
+
   ngOnInit() {
     this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
