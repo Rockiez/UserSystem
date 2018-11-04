@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   ngOnInit() {
   }
-
+  id: number;
+  password: string;
   constructor(public authService: AuthService, public router: Router) {
 
   }
@@ -20,8 +21,8 @@ export class LoginComponent implements OnInit {
       if (this.authService.isLoggedIn) {
         // Get the redirect URL from our auth service
         // If no redirect has been set, use the default
-        let redirect = this.authService.redirectUrl 
-                        ? this.authService.redirectUrl 
+        const redirect = this.authService.redirectUrl
+                        ? this.authService.redirectUrl
                         : '/detail/11';
 
         // Redirect the user

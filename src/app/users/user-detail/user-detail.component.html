@@ -1,31 +1,53 @@
 <div *ngIf="user">
-  <h2>{{user.first_name}} {{user.last_name}} Detail</h2>
-  <div><span>id: </span>{{user.id}}</div>
+
+  <h2 class="user-title">{{user.first_name}} {{user.last_name}}</h2>
+  <span class="id-title">ID {{user.id}}</span>
   <div>
 
-    <div>First Name:
-      <input [(ngModel)]="user.first_name" placeholder="First Name"/>
-    </div>
-    <div>Last Name:
-      <input [(ngModel)]="user.last_name" placeholder="Last Name"/>
-    </div>
-    <div>Email:
-        <mat-form-field class="example-full-width">
-            <input matInput [(ngModel)]="user.email" placeholder="Email"/>
+<div class="serial-form">
+      <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+      <input matInput type="text" [(ngModel)]="user.first_name" placeholder="First Name"/>
+    </mat-form-field>
+    
+        <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+      <input matInput type="text" [(ngModel)]="user.last_name" placeholder="Last Name"/>
+    </mat-form-field>
+</div>
+
+    <div class="serial-form">
+      <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" [(ngModel)]="user.email" placeholder="Email"/>
         </mat-form-field>
+ 
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+      <input matInput type="password" [(ngModel)]="user.password" placeholder="password"/>
+    </mat-form-field>
     </div>
-    <div>Password:
-      <input [(ngModel)]="user.password" placeholder="password"/>
+
+    <div class="serial-form">
+        <mat-form-field appearance="outline">
+            <mat-label>Weight</mat-label>
+      <input matInput type="number" [(ngModel)]="user.weight" placeholder="Weight"/>
+      </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Height</mat-label>
+      <input matInput type="number" [(ngModel)]="user.height" placeholder="Height"/>
+      </mat-form-field>
     </div>
-    <div>Age:
-      <input [(ngModel)]="user.age" placeholder="Age"/>
-    </div>
-    <div>Weight:
-      <input [(ngModel)]="user.weight" placeholder="Weight"/>
-    </div>
-    <div>Height:
-      <input [(ngModel)]="user.height" placeholder="Height"/>
+    <div class="serial-form">
+        <mat-form-field appearance="outline">
+            <mat-label>Age</mat-label>
+      <input matInput type="number" [(ngModel)]="user.age" placeholder="Age"/>
+      </mat-form-field>
     </div>
   </div>
-  <button (click)="save()">save</button>
+<mat-card-actions>
+  <button mat-flat-button color="accent" (click)="save()">SAVE</button>
+</mat-card-actions>
 </div>
+

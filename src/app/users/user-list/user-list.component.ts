@@ -1,5 +1,5 @@
 import { UserService } from './../user.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { User } from '../user';
 import { switchMap } from 'rxjs/operators';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
@@ -13,12 +13,11 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 export class UserListComponent implements OnInit {
 
   selectedId: number;
-  constructor(private userService: UserService,
+  constructor(public userService: UserService,
     private route: ActivatedRoute,private router: Router) { }
 
-  // ngOnInit() {
-  //   this.getHeroes();
-  // }
+  @Output() moveEvent = new EventEmitter<number>();
+
   
   columnsToDisplay = ['id','name','detail','delete'];
 
@@ -45,20 +44,8 @@ export class UserListComponent implements OnInit {
     this.userService.deleteUser(user).subscribe();
   }
 
-  add(): void {
-    // this.userService.addUser({ name } as User)
-    //   .subscribe(user => {
-    //     this.userService.userList.push(user);
-    //   });
-
-    // let newUser = new User();
-    // newUser.id = this.userService.userList.length + 11;
-    // newUser.email;
-    // this.userService.addUser(newUser)
-    //   .subscribe(user => {
-    //     this.userService.userList.push(user);
-    //   });
-    // this.router.navigate(['/create']);
-
+  moveTab(id:number): void{
+    this.router.navigate(['/detail/'+id]);
+    this.moveEvent.emit(1);
   }
 }

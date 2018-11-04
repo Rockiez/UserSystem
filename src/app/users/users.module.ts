@@ -10,6 +10,9 @@ import { UserCreateComponent } from './user-create/user-create.component';
 import {MatButtonModule, MatCheckboxModule, MatInputModule, MatCardModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTableModule} from '@angular/material/table';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatTabsModule} from '@angular/material/tabs';
+
 
 
 @NgModule({
@@ -23,6 +26,8 @@ import {MatTableModule} from '@angular/material/table';
     MatInputModule,
     MatTableModule,
     MatCardModule,
+    MatSidenavModule,
+    MatTabsModule,
 
   ],
   declarations: [

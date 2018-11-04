@@ -1,19 +1,35 @@
 <div>
-  <h2>Create new user </h2>
+  <h2 class="user-title">Create new user </h2>
   <div>
-    <div>First Name:
-      <input [(ngModel)]="user.first_name" placeholder="First Name"/>
-    </div>
-    <div>Last Name:
-      <input [(ngModel)]="user.last_name" placeholder="Last Name"/>
-    </div>
-    <div>Email:
-      <input [(ngModel)]="user.email" placeholder="Email"/>
-    </div>
-    <div>Password:
-      <input [(ngModel)]="user.password" placeholder="password"/>
+    <div class="serial-form">
+        <mat-form-field appearance="outline">
+              <mat-label>First Name</mat-label>
+        <input matInput type="text" [(ngModel)]="user.first_name" placeholder="First Name"/>
+      </mat-form-field>
+      
+          <mat-form-field appearance="outline">
+              <mat-label>Last Name</mat-label>
+        <input matInput type="text" [(ngModel)]="user.last_name" placeholder="Last Name"/>
+      </mat-form-field>
+  </div>
+
+
+  <div class="serial-form">
+      <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" [(ngModel)]="user.email" placeholder="Email"/>
+        </mat-form-field>
+ 
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+      <input matInput type="password"  [(ngModel)]="user.password" placeholder="password"/>
+    </mat-form-field>
     </div>
   </div>
-  <button (click)="save()">save</button>
-  <button (click)="cancel()">cancel</button>
+  <mat-card-actions>
+      <button mat-flat-button color="primary" (click)="cancel()">Cancel</button>
+
+      <button mat-flat-button color="accent" (click)="save()">Save</button>
+</mat-card-actions>
+
 </div>

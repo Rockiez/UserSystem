@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-users-panel',
@@ -8,9 +9,14 @@ import { UserService } from '../user.service';
 })
 export class UsersPanelComponent implements OnInit {
 
+  selected:number;
   constructor() { }
 
   ngOnInit() {
   }
 
+  move(ag: number){
+    console.log(ag);
+    this.selected=ag;
+  }
 }
