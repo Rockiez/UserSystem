@@ -1,10 +1,12 @@
 <mat-card class="user-system-card mat-elevation-z1">
     <mat-card-title class="card-title" (click)="home()">
-        {{title}}
+            User<br>System
     </mat-card-title>
 <div class="divider">
         <mat-divider  ></mat-divider>
 </div>
+<mat-card-content>
     <router-outlet></router-outlet>
+</mat-card-content>
 </mat-card>
 

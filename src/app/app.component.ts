@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'UserSystem';
   constructor(private router: Router) { }
   home(){
     this.router.navigate(['/detail/11']);

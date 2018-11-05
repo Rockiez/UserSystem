@@ -3,7 +3,7 @@
 </mat-card-title>
 
 
-<mat-tab-group [(selectedIndex)]="selected">
+<mat-tab-group [(selectedIndex)]="selected" color="accent">
     <mat-tab label="User List">
         <app-user-list  (moveEvent)="move($event)"></app-user-list>
     </mat-tab>
