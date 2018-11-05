@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { Router } from '@angular/router';
+import { OktaAuthService } from '@okta/okta-angular';
 
 @Component({
   selector: 'app-login',
@@ -12,27 +13,16 @@ export class LoginComponent implements OnInit {
   }
   id: number;
   password: string;
-  constructor(public authService: AuthService, public router: Router) {
+  constructor(public authService: AuthService, public router: Router,public oktaAuth: OktaAuthService) {
 
   }
 
   login() {
-    this.authService.login().subscribe(() => {
-      if (this.authService.isLoggedIn) {
-        // Get the redirect URL from our auth service
-        // If no redirect has been set, use the default
-        const redirect = this.authService.redirectUrl
-                        ? this.authService.redirectUrl
-                        : '/detail/11';
-
-        // Redirect the user
-        this.router.navigate([redirect]);
-      }
-    });
+    this.authService.login();
   }
 
-  logout() {
-    this.authService.logout();
-  }
+  // logout() {
+  //   this.authService.logout();
+  // }
 
 }

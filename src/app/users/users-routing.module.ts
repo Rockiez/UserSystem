@@ -15,7 +15,10 @@ const routes: Routes = [
     path: 'create',
     canActivate: [AuthGuard],
     component: UserCreateComponent,
-  },
+  },  {
+    path: 'detail',redirectTo: 'detail/11', pathMatch: 'full',
+   canActivate: [AuthGuard]
+  }
 ];
 
 @NgModule({

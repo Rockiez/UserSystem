@@ -18,6 +18,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDividerModule} from '@angular/material/divider';
 
+import {OktaAuthModule, OktaCallbackComponent,} from '@okta/okta-angular';
+
+
 
 
 
@@ -37,6 +40,7 @@ import {MatDividerModule} from '@angular/material/divider';
     MatGridListModule,
     MatToolbarModule,
     MatDividerModule,
+
 
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
