@@ -33,14 +33,14 @@ export class UserCreateComponent implements OnInit {
       && this.user.last_name === '' 
       && this.user.email === ''
       && this.user.password === '') {
-      
+      return;
     }
     this.userService.addUser(this.user)
       .subscribe(user => {
-        this.userService.userList.push(user);
+
+        this.router.navigate(['/detail/'+user.id]);
       });
 
-    this.router.navigate(['/detail/'+this.userService.userList[this.userService.userList.length -1].id]);
 
     console.log(this.user);
 

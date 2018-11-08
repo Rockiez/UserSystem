@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
@@ -19,6 +19,7 @@ export class UserDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -47,6 +48,7 @@ export class UserDetailComponent implements OnInit {
     console.log(this.user);
     // this.userService.updateUser(this.user).subscribe();
     this.userService.refreshUser(this.user);
+    // this.router.navigate(['/detail/'+this.user.id]);
 
  }
 

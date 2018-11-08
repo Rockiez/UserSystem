@@ -16,7 +16,6 @@ export class UsersPanelComponent implements OnInit {
   }
 
   move(ag: number){
-    console.log(ag);
     this.selected=ag;
   }
 }
